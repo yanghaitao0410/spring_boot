@@ -52,7 +52,8 @@ public class GirlController {
         如果发生错误，将错误信息保存在BindingResult对象中*/
     public Result girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
-            return ResultUtil.error(0, bindingResult.getFieldError().getDefaultMessage());
+            return null;
+//            return ResultUtil.error(0, bindingResult.getFieldError().getDefaultMessage());
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
