@@ -32,6 +32,11 @@ public class GirlService {
         return girls;
     }
 
+    /**
+     * 根据id查看实体类不同异常
+     * @param id
+     * @throws GirlException
+     */
     public void getAge(Integer id) throws GirlException{
         Girl girl = girlRepository.findOne(id);
         if(girl.getAge() < 12){
@@ -39,7 +44,14 @@ public class GirlService {
         }else if(girl.getAge() > 12 && girl.getAge() < 16){
             throw new GirlException(ExceptionEnum.MIDDLE_SCHOOL);
         }
+    }
 
-
+    /**
+     * 根据id查询出用户
+     * @param id
+     * @return
+     */
+    public Girl findOne(Integer id){
+        return girlRepository.findOne(id);
     }
 }
