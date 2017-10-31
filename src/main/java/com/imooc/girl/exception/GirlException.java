@@ -1,12 +1,14 @@
 package com.imooc.girl.exception;
 
+import com.imooc.girl.enums.ExceptionEnum;
+
 public class GirlException extends RuntimeException {
 
     private Integer code;
 
-    public GirlException(Integer code, String message){
-        super(message);
-        this.code = code;
+    public GirlException(ExceptionEnum exceptionEnum){
+        super(exceptionEnum.getMessage());
+        this.code = exceptionEnum.getCode();
     }
 
     public Integer getCode() {

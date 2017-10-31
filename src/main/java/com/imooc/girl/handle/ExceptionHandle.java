@@ -1,6 +1,7 @@
 package com.imooc.girl.handle;
 
 import com.imooc.girl.entity.Result;
+import com.imooc.girl.enums.ExceptionEnum;
 import com.imooc.girl.exception.GirlException;
 import com.imooc.girl.utils.ResultUtil;
 import org.slf4j.Logger;
@@ -32,7 +33,8 @@ public class ExceptionHandle {
             return ResultUtil.error(girlException.getCode(), girlException.getMessage());
         } else {
             logger.info("【系统异常】{}", e);
-            return ResultUtil.error(-1, "未知错误");
+            return ResultUtil.error(
+                    ExceptionEnum.UNKNOW_ERROR.getCode(), ExceptionEnum.UNKNOW_ERROR.getMessage());
         }
     }
 
